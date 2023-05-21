@@ -1,5 +1,6 @@
 from sqlalchemy import create_engine
 from sqlalchemy.exc import IntegrityError, OperationalError
+from sqlalchemy import text
 
 sql_statements = """
 CREATE DATABASE IF NOT EXISTS `blog`;
@@ -34,13 +35,13 @@ def main():
     with engine.connect() as connection:
         for sql in sql_statements.split(";"):
             try:
-                connection.execute(sql)
+                connection.execute(text(sql))
             except (IntegrityError, OperationalError):
                 pass
 
-    result = engine.execute("SELECT * FROM blog.users")
-    for row in result:
-        print(row)
+        result = connection.execute(text("SELECT * FROM blog.users"))
+        for row in result:
+            print(row)
 
 
 if __name__ == "__main__":
