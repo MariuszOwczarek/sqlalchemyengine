@@ -26,10 +26,11 @@ INSERT INTO `blog`.`users` (username, email) VALUES ('ryan_smith', 'ryan@example
 INSERT INTO `blog`.`users` (username, email) VALUES ('jessica_adams', 'jessica@example.com');
 """
 
-
 def main():
     login = 'root'
     password = 'prodigy1#'
+
+
 
     engine = create_engine(f"mysql+pymysql://{login}:{password}@localhost:3306")
     with engine.connect() as connection:
