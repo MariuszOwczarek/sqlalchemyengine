@@ -28,7 +28,7 @@ INSERT INTO `blog`.`users` (username, email) VALUES ('jessica_adams', 'jessica@e
 
 def main():
     login = 'root'
-    password = 'prodigy1#'
+    password = 'xxx'
 
 
 
